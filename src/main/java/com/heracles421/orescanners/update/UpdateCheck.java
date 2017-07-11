@@ -25,6 +25,6 @@ package com.heracles421.orescanners.update;
  */
 public class UpdateCheck {
     public static void checkforUpdates(){
-        String updateURL = "";
+        String updateURL = "https://raw.githubusercontent.com/ianespana/HeraclesOreScanners/master/update.txt";
     }
 }
