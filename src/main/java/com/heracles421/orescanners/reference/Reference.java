@@ -20,6 +20,11 @@
 
 package com.heracles421.orescanners.reference;
 
+import com.sun.org.apache.xerces.internal.xs.StringList;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Heracles421 on 10-Jul-17.
  */
@@ -33,4 +38,6 @@ public class Reference {
     public static final String CLIENT_PROXY = "com.heracles421.orescanners.proxy.ClientProxy";
     public static final String SERVER_PROXY = "com.heracles421.orescanners.proxy.ServerProxy";
     public static final String GUI_FACTORY = "com.heracles421.orescanners.client.gui.GuiFactory";
+
+    public static final String UPDATE_URL = "https://raw.githubusercontent.com/ianespana/HeraclesOreScanners/master/update.txt";
 }

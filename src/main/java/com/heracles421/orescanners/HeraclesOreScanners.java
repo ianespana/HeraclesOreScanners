@@ -25,9 +25,11 @@ package com.heracles421.orescanners;
  */
 
 import com.heracles421.orescanners.handlers.ConfigurationHandler;
+import com.heracles421.orescanners.handlers.VersionHandler;
 import com.heracles421.orescanners.proxy.IProxy;
 import com.heracles421.orescanners.reference.Reference;
 import com.heracles421.orescanners.utility.LogHelper;
+import com.heracles421.orescanners.utility.VersionChecker;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -50,11 +52,19 @@ public class HeraclesOreScanners {
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static IProxy proxy;
+    public static VersionChecker versionChecker;
+    public static boolean haveWarnedVersionOutOfDate = false;
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent e){
         ConfigurationHandler.initConfiguration(e.getModConfigurationDirectory().toString());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+        FMLCommonHandler.instance().bus().register(new VersionHandler());
+
+        versionChecker = new VersionChecker();
+        Thread versionCheckThread = new Thread(versionChecker, "Version Check");
+        versionCheckThread.start();
+
         LogHelper.info("Pre-Init complete, initiate countdown.");
     }
 

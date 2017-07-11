@@ -20,6 +20,10 @@
 
 package com.heracles421.orescanners.proxy;
 
+import com.heracles421.orescanners.HeraclesOreScanners;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
 /**
  * Created by Heracles421 on 10-Jul-17.
  */
